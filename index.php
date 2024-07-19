@@ -1,0 +1,1 @@
+<!DOCTYPE html> <html> <head> <title>Форма входа</title> </head> <body> <h1>Форма входа</h1> <form method="post" action="login.php"> Имя пользователя: <input type="text" name="username"><br> Пароль: <input type="password" name="password"><br> <input type="submit" name="submit" value="Войти"> </form> </body> </html>

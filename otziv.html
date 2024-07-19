@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Отзывы</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="otziv.css">
+</head>
+<body>
+    <nav>
+        <a href="Проект2.html" class="Menu">Меню</a>
+        <a href="Проект1.html" class="osnova">Главная</a>
+        <a href="" class="dostavka">Доставка</a>
+        </nav>
+  <div class="reviews-container">
+    <h2>Отзывы</h2>
+    <div class="review-item">
+      <div class="review-header">
+        <div class="reviewer-name">Иван Петров</div>
+        <div class="review-rating">4.5</div>
+      </div>
+      <div class="review-text">Отличный сервис, быстрое обслуживание и приятный персонал. Рекомендую!</div>
+    </div>
+    <div class="review-item">
+      <div class="review-header">
+        <div class="reviewer-name">Екатерина Сидорова</div>
+        <div class="review-rating">4.2</div>
+      </div>
+      <div class="review-text">Остались очень довольны посещением. Обязательно вернемся еще!</div>
+    </div>
+    <div class="review-item">
+      <div class="review-header">
+        <div class="reviewer-name">Алексей Кузнецов</div>
+        <div class="review-rating">4.8</div>
+      </div>
+      <div class="review-text">Прекрасное место, отличное обслуживание. Рекомендую всем!</div>
+    </div>
+    <h2>Написать отзыв</h2>
+    <form id="review-form">
+      <div class="form-group">
+        <div class="inputbox">
+					<ion-icon name="lock-closed-outline"></ion-icon>
+					<input type="text" required>
+					<label for="">Имя</label>
+				</div>
+      </div>
+      <div class="form-group">
+        <label for="rating">Рейтинг:</label>
+        <select id="rating" name="rating" required>
+          <option value="">Выберите рейтинг</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </div>
+      <form id="review-form">
+        <div class="form-group">
+          <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="text" required>
+            <label for="">Отзыв</label>
+          </div>
+        </div>
+        <div class="otzivotprl">
+          <h1>Ваш отзыв был успешно отравлен</h1>
+
+        </div>
+        <button id="myButton">Отправить отзыв</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <p class="model113">Отызыв был успешно отправлен</p>
+  </div>
+</div>
+      
+
+  <script src="otziv.js"></script>
+</body>
+</html>

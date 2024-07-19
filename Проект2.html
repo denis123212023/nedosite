@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Меню</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+  <style>
+    :root {
+      --primary-color: #2980b9;
+      --secondary-color: #8e44ad;
+      --text-color: #333;
+      --background-color: #f5f5f5;
+      --border-color: #ddd;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-color);
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+    }
+
+    .header h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    .nav {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav li {
+      margin: 0 20px;
+    }
+
+    .nav a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .menu-items {
+      display: none;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+
+    .menu-items.active {
+      display: block;
+    }
+
+    .menu-items h2 {
+      color: var(--primary-color);
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .menu-items ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-items li {
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 50px 50px 0 0;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Меню</h1>
+    <p>Добро пожаловать в наше меню!</p>
+    <nav class="nav">
+      <ul>
+        <li><a href="проект0.html" >Главная</a></li>
+        <li><a href="#" >Отзывы</a></li>
+        <li><a href="#" >Доставка</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <nav class="nav">
+    <ul>
+      <li><a href="#" data-category="all">Все</a></li>
+      <li><a href="#" data-category="dishes">Блюда</a></li>
+      <li><a href="#" data-category="drinks">Напитки</a></li>
+      <li><a href="#" data-category="contacts">Суши</a></li>
+    </ul>
+  </nav>
+  
+
+  <main class="container">
+    <div class="menu-items active" data-category="dishes">
+      <h2>Популярные блюда</h2>
+      <ul>
+        <li>Паста Карбонара</li>
+        <li>Стейк с картофелем фри</li>
+        <li>Салат Цезарь</li>
+      </ul>
+    </div>
+
+    <div class="menu-items" data-category="drinks">
+      <h2>Напитки</h2>
+      <ul>
+        <li>Кофе</li>
+        <li>Чай</li>
+        <li>Сок</li>
+        <li>Пиво</li>
+      </ul>
+    </div>
+
+    <section class="featured-dishes">
+      <h2>Наши фирменные блюда</h2>
+      <div class="dish-grid">
+          <div class="dish-card">
+            <h3>Суши с лососем</h3>
+              <p >Нежные кусочки свежего лосося на рисовой основе.</p>
+              <img src="1d.jpg" alt="Суши с лососем" width="100px">
+              
+          </div>
+          <div class="dish-card">
+            <h3>Ролл с крабом</h3>
+              <p>Роскошный ролл с мясом краба и свежими овощами.</p>
+              <img src="2d.jpg" alt="Ролл с крабом" width="100px">
+              
+          </div>
+          <div class="dish-card">
+            <h3>Темпура ролл</h3>
+              <p>Хрустящий ролл с морепродуктами во фритюре.</p>
+              <img src="3d.jpg" alt="Темпура ролл" width="100px">
+              
+          </div>
+      </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Меню. Все права защищены.</p>
+  </footer>
+
+  <script>
+    const navLinks = document.querySelectorAll('.nav a');
+    const menuItems = document.querySelectorAll('.menu-items');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const category = event.target.dataset.category;
+        displayMenuItems(category);
+      });
+    });
+
+    function displayMenuItems(category) {
+      menuItems.forEach(item => {
+        if (item.dataset.category === category || category === 'all') {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
+

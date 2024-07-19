@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Загрузка</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #1c1c1c;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .loading-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .loading-text {
+      font-size: 36px;
+      font-weight: 700;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleAnimation 1s ease-in-out infinite;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkleAnimation 0.5s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes particleAnimation {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50%) scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(random(-150, 150)%) translateY(random(-150, 150)%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(random(-150, 150)%) translateY(random(-150, 150)%) scale(0.5);
+      }
+    }
+
+    @keyframes sparkleAnimation {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+    }
+
+    .particle.red {
+      background-color: #ff6b6b;
+    }
+
+    .particle.green {
+      background-color: #7ed6df;
+    }
+
+    .particle.blue {
+      background-color: #5b86e5;
+    }
+
+    .particle.yellow {
+      background-color: #f9ca24;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="loading-text">Загрузка...</div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      document.body.style.display = 'flex';
+
+      const container = document.querySelector('.loading-container');
+      const numParticles = 200;
+      const numSparkles = 100;
+
+      function createParticles() {
+        for (let i = 0; i < numParticles; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          particle.classList.add(getRandomColor());
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.animationDelay = `${Math.random() * 1}s`;
+          container.appendChild(particle);
+        }
+      }
+
+      function createSparkles() {
+        for (let i = 0; i < numSparkles; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.classList.add('sparkle');
+          sparkle.style.left = `${Math.random() * 100}%`;
+          sparkle.style.top = `${Math.random() * 100}%`;
+          sparkle.style.animationDelay = `${Math.random() * 0.5}s`;
+          container.appendChild(sparkle);
+        }
+      }
+
+      function getRandomColor() {
+        const colors = ['red', 'green', 'blue', 'yellow'];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      createParticles();
+      createSparkles();
+
+      setTimeout(() => {
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+          window.location.href = 'otziv.html';
+        }, 500);
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
